@@ -1,6 +1,11 @@
-@import "tailwindcss/base";
+/* @import "tailwindcss/base";
 @import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "tailwindcss/utilities"; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 /* ===============================
    BASE – global foundation
@@ -217,5 +222,83 @@
     height: 1px;
     width: 100%;
     background-color: rgba(0,0,0,0.1);
+  }
+}
+
+
+/* ===============================
+  NAVBAR UI STYLES
+   =============================== */
+
+@layer components {
+  /* ===== Sidebar (Desktop) ===== */
+  .sidebar {
+    @apply hidden md:flex w-64 bg-white border-r border-black/5 flex-col;
+  }
+
+  .sidebar-header {
+    @apply px-6 py-5 border-b border-black/5;
+  }
+
+  .sidebar-title {
+    @apply text-lg font-semibold;
+  }
+
+  .nav-item {
+    @apply flex items-center h-11 px-6 gap-3 text-sm cursor-pointer text-muted hover:bg-black/5;
+  }
+
+  /* Active item — use arbitrary color */
+  .nav-item-active {
+    @apply bg-black/5 font-medium;
+    @apply text-[#242424]; /* brandDark */
+  }
+
+  .nav-rail {
+    @apply h-full w-[3px] bg-transparent;
+  }
+
+  .nav-item:hover .nav-rail {
+    @apply bg-[#FF4500]; /* brandOrange */
+  }
+
+  .nav-rail-active {
+    @apply bg-[#FF4500]; /* brandOrange */
+  }
+
+  .nav-icon {
+    @apply text-black/60;
+  }
+
+  .nav-icon-active {
+    @apply text-[#242424]; /* brandDark */
+  }
+
+  /* ===== Mobile Bottom Nav ===== */
+  .bottom-nav {
+    @apply md:hidden fixed bottom-0 inset-x-0 h-14
+           bg-white border-t border-black/5
+           flex justify-around items-center;
+  }
+
+  .bottom-nav-item {
+    @apply flex flex-col items-center text-xs cursor-pointer text-muted;
+  }
+
+  .bottom-nav-item-active {
+    @apply text-[#242424]; /* brandDark */
+  }
+
+    .bottom-nav-item-active span {
+    @apply text-[#FF4500]; /* brandDark */
+  }
+
+  .bottom-nav-icon {
+    @apply text-black/70;
+  }
+
+  .bottom-nav-icon-active {
+    /* color: #FF4500, */
+     @apply text-[#FF4500];
   }
 }

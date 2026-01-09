@@ -11,9 +11,12 @@ currencyConverter(500, "usd");
 
 export default function Button(props: { backgroundColor: string }) {
   const backgroundColor = props.backgroundColor;
+  console.log(backgroundColor);
   return (
     <>
-      <button className="bg-brandGray text-brandOrange px-1">click me</button>
+      <button className={`bg-${backgroundColor} text-brandOrange px-1`}>
+        click me
+      </button>
     </>
   );
 }

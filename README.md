@@ -1,73 +1,157 @@
-# React + TypeScript + Vite
+# KraftFlowz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+KraftFlowz is a modern, high‑performance workflow and operations dashboard built for managing orders, products, costs, and daily business activity with speed and clarity.
 
-Currently, two official plugins are available:
+This repository tracks **v1 development** using GitHub Milestones and Issues. Each feature is broken into actionable tasks that can be picked up and completed incrementally.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Vision
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Build a fast, clean, and scalable business dashboard that:
 
-## Expanding the ESLint configuration
+* Feels **high‑tech and modern**
+* Is **mobile‑first**, then desktop‑enhanced
+* Scales cleanly beyond v1 without rewrites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+v1 focuses on **core structure, navigation, and state flow**, not feature overload.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🧱 Tech Stack (v1)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**Frontend**
+
+* React + TypeScript
+* Vite
+* Tailwind CSS
+* Lucide Icons
+
+**State Management**
+
+* Zustand (global UI + app state)
+
+**Styling & Architecture**
+
+* Tailwind utility classes
+* Custom components via `@layer components`
+* Mobile‑first responsive layout
+
+**Tooling**
+
+* ESLint
+* Prettier
+* GitHub Issues & Milestones
+
+---
+
+## 🧩 Core Features (v1 Scope)
+
+### 1. App Shell & Layout
+
+* Sidebar navigation (desktop)
+* Bottom navigation (mobile)
+* Active state handling
+* Responsive breakpoints
+
+### 2. Navigation System
+
+* Central nav config (labels, icons, routes)
+* Active route highlighting
+* Shared nav logic between desktop & mobile
+
+### 3. Pages (Scaffold Only)
+
+* Dashboard
+* Orders
+* Products
+* Costs
+
+> Note: Pages are **UI placeholders** in v1. No backend logic yet.
+
+### 4. Global State (Zustand)
+
+* Active navigation state
+* UI toggles (sidebar open/close if needed later)
+* Prepared store structure for v2 expansion
+
+### 5. Branding & UI Identity
+
+* KraftFlowz logo integration
+* KF favicon
+* Brand colors (orange / grey)
+* Consistent typography & spacing
+
+### 6. Developer Experience
+
+* Clean folder structure
+* Reusable components
+* Predictable naming conventions
+
+---
+
+## 🗂 Suggested Folder Structure
+
+```
+src/
+ ├─ assets/
+ │   └─ logos & icons
+ ├─ components/
+ │   ├─ navigation/
+ │   └─ ui/
+ ├─ pages/
+ │   ├─ Dashboard.tsx
+ │   ├─ Orders.tsx
+ │   ├─ Products.tsx
+ │   └─ Costs.tsx
+ ├─ store/
+ │   └─ useAppStore.ts
+ ├─ styles/
+ │   └─ index.css
+ ├─ App.tsx
+ └─ main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠 Development Workflow
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Pick an open Issue under the **v1 Milestone**
+2. Create a feature branch
+3. Complete the task fully
+4. Commit with clear message
+5. Close the issue
+
+Repeat daily until v1 is complete.
+
+---
+
+## 🧭 Roadmap Philosophy
+
+* **v1 = foundation**, not perfection
+* UI + state correctness > feature count
+* Anything not essential goes to v2
+
+---
+
+## 📌 Status
+
+* v1: 🚧 In Progress
+* Backend: ❌ Not started
+* Auth: ❌ Out of scope for v1
+
+---
+
+## 🤝 Contribution Notes (Solo Dev)
+
+This project is currently developed solo. Decisions prioritize:
+
+* Simplicity
+* Maintainability
+* Long‑term scalability
+
+---
+
+## 📄 License
+
+Private / Internal (for now)

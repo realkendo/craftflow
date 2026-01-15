@@ -15,18 +15,59 @@
     --brand-dark: #2b2b2b;
     --brand-accent: #ff4500;
     --brand-muted: #8a8a8a;
-    --brand-bg: #777;
+
+     /* === Glassy gradient background === */
+
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-blur: blur(18px);
+    
+    --brand-bg-base:
+      radial-gradient(
+        circle at 20% 10%,
+        rgba(255, 69, 0, 0.25),
+        transparent 45%
+      ),
+
+      radial-gradient(
+        circle at 80% 90%,
+        rgba(255, 255, 255, 0.08),
+        transparent 40%
+      ),
+      
+      linear-gradient(
+        135deg,
+        #0b0b0b,
+        #2b2b2b
+      );
   }
+
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.25),
+    0 8px 24px rgba(0,0,0,0.25);
+  }
+
+  .app-shell {
+  background: var(--brand-bg-base);
+      height: 100%;
+   
+}
 
   html {
-    font-family: Inter, system-ui, sans-serif;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
+
   body {
-    background-color: var(--brand-bg);
     color: var(--brand-dark);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+ overflow: hidden;
   }
 
   h1 {
@@ -210,6 +251,14 @@
   }
 }
 
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+  }
+
+
 /* ===============================
    UTILITIES – discipline helpers
    =============================== */
@@ -245,26 +294,51 @@
     @apply hidden md:flex w-64 bg-white border-r border-black/5 flex-col;
   }
 
-  .sidebar-header {
+  /* .sidebar-header {
     @apply px-6 py-5 border-b border-black/5;
   }
 
   .sidebar-logo {
     @apply h-auto w-auto object-contain;
-  }
+  } */
+
+  .sidebar-header {
+  @apply px-6 py-5 border-b border-white/10;
+}
+
+.sidebar-logo {
+  height: auto;
+}
+
 
   .nav-item {
     @apply flex items-center h-11 px-6 gap-3 text-sm cursor-pointer text-muted hover:bg-black/5;
   }
 
   /* Active item — use arbitrary color */
+
+   
+
   .nav-item-active {
-    @apply bg-black/5 font-medium;
-    @apply text-[#242424]; /* brandDark */
+  background: linear-gradient(
+    to left,
+    #FF4500,
+    transparent
+  );
+  font-weight: 500;
+  color: var(--brand-dark);
+}
+
+  .nav-item:hover {
+    padding-left: 36px;
+    transition: padding 150ms ease;
   }
+
+
 
   .nav-rail {
     @apply h-full w-[3px] bg-transparent;
+    transition: background-color 200ms ease;
   }
 
   .nav-item:hover .nav-rail {
@@ -295,12 +369,26 @@
   }
 
   .bottom-nav-item-active {
-    @apply text-[#242424]; /* brandDark */
-  }
-
-    .bottom-nav-item-active span {
     @apply text-[#FF4500]; /* brandDark */
   }
+
+    .bottom-nav-item-active .bottom-nav-label {
+    @apply text-[#FF4500]; /* brandDark */
+  }
+
+  .bottom-nav-item-active .bottom-nav-icon {
+    color: #ff4500;
+    transform: scale(1.1);
+}
+
+.bottom-nav-item-active::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: #ff4500;
+  border-radius: 9999px;
+  margin-top: 2px;
+}
 
   .bottom-nav-icon {
     @apply text-black/70;

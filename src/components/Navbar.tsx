@@ -22,9 +22,11 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="sidebar">
+      <aside className="sidebar glass">
         <div className="sidebar-header flex items-center gap-2">
-          <img src={logo} alt="Kraftflowz Logo" className="sidebar-logo" />
+          <a href="/">
+            <img src={logo} alt="Kraftflowz Logo" className="sidebar-logo" />
+          </a>
         </div>
 
         <nav>
